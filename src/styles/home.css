@@ -1,0 +1,431 @@
+/* Main Container */
+.main-container {
+    position: relative;
+  }
+  
+  /* CAPA 1: Imágenes fijas */
+  .fixed-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh; /* Altura total para las dos imágenes */
+    z-index: 1;
+  }
+  
+  .fixed-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .first-fixed-image {
+    top: 0;
+  }
+  
+  .second-fixed-image {
+    top: 100vh; /* Comienza después de la primera imagen */
+  }
+  
+  .fixed-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* CAPA 2: Secciones que se desplazan */
+  .scroll-layer {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Header */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem; /* Padding inicial más grande */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    background-color: transparent;
+    color:#ffffff
+}
+  
+  .header-white {
+    background-color: white;
+    color: #adce26;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-white .nav-link,
+  .header-white .order-button {
+    color: #ffffff;
+  }
+  
+  .header-white .nav-link:hover,
+  .header-white .order-button:hover {
+    color: #ffffff !important;
+  }
+  
+  @media (min-width: 768px) {
+    .header {
+      padding: 1rem 3rem;
+    }
+  }
+  
+  .logo-nav-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-right: 2rem;
+    color: white; /* Logo blanco inicialmente */
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+  
+.navigation {
+  display: none;
+}
+
+  
+  @media (min-width: 768px) {
+    .navigation {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+  
+  .nav-link {
+    color: white; /* Enlaces blancos inicialmente */
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Texto en mayúsculas como en Honest Greens */
+    letter-spacing: 0.05em; /* Espaciado entre letras */
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.order-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 0.5rem 1.25rem;
+    border: 2px solid white;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.order-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.arrow-icon {
+    margin-left: 0.25rem;
+}
+
+/* Header después del scroll (blanco con texto negro) */
+.header-white {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    padding: 1rem 3rem; /* Padding más pequeño */
+}
+
+.header-white .logo {
+    color: #2e7d32; /* Logo verde como en Honest Greens */
+}
+
+.header-white .nav-link {
+    color: #7d990b; /* Enlaces negros/oscuros */
+}
+
+.header-white .nav-link:hover {
+    color: #2e7d32; /* Hover en verde */
+}
+
+.header-white .order-button {
+    color: #2e7d32; /* Color verde */
+    border-color: #2e7d32; /* Borde verde */
+}
+
+.header-white .order-button:hover {
+    background-color: rgba(46, 125, 50, 0.1); /* Fondo verde claro al hover */
+}
+  /* 1. Sección de video */
+  .video-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1.5rem;
+    transition: opacity 0.3s ease;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #d1d1d1;
+    line-height: 0.9;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 6rem;
+    }
+  }
+  
+  .hero-subtitle {
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  /* 2 & 4 & 6. Secciones blancas */
+  .white-section {
+    position: relative;
+    background-color: white;
+    padding: 6rem 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    .white-section {
+      padding: 6rem 3rem;
+    }
+  }
+  
+  .content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  /* Estilos para la sección de menú */
+  .menu-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .menu-categories {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .menu-category {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .category-description {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  /* Estilos para la sección de valores */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .value-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+  }
+  
+  .value-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .value-description {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  /* Estilos para la sección de restaurantes */
+  .restaurants-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    .restaurants-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .restaurant-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .restaurant-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .restaurant-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .restaurant-address {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  /* 3 & 5. Secciones transparentes */
+  .transparent-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* No background color - transparent to show fixed images */
+  }
+  
+  .transparent-content {
+    max-width: 600px;
+    padding: 0 3rem;
+    color: white;
+    margin-left: 0; /* Alineado a la izquierda */
+  }
+  
+  .transparent-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+  
+  .transparent-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+  }
+  
+  .download-button,
+  .menu-button {
+    padding: 0.75rem 2rem;
+    background-color: white;
+    color: black;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  .download-button:hover,
+  .menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Sección de contacto */
+  .footer-section {
+    min-height: 50vh;
+    text-align: center;
+  }
+  
+  .contact-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-button {
+    padding: 0.75rem 2rem;
+    background-color: black;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #333;
+  }
+  
