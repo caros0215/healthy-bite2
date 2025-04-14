@@ -1,86 +1,103 @@
-import { useState, useEffect } from 'react';
-import styles from './MenuSlider.module.css';
+"use client"
+
+import { useRef } from "react"
+import "./MenuSlider.css"
+import imagen1 from "../assets/images/plato_4.jpeg"
+import imagen2 from "../assets/images/plato_5.jpeg"
+import imagen3 from "../assets/images/plato_6.jpeg"
+import imagen4 from "../assets/images/plato_7.jpeg"
+import imagen5 from "../assets/images/plato_8.jpeg"
+import imagen6 from "../assets/images/plato_9.jpeg"
 
 const MenuSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Datos de los slides incluidos en el componente
-  const slides = [
+  // Create a proper ref using useRef
+  const containerRef = useRef(null)
+
+  // Sample data based on the image
+  const menuItems = [
     {
       id: 1,
-      image: "/bowls.jpg",
-      alt: "Bowls saludables",
-      title: "BOWLS",
-      description: "Combinaciones únicas con ingredientes frescos y nutritivos"
+      image: imagen1,
+      title: "Para Compartir",
+      icon: "→",
     },
     {
       id: 2,
-      image: "/ensaladas.jpg",
-      alt: "Ensaladas frescas",
-      title: "ENSALADAS",
-      description: "Mezclas crujientes con productos de temporada"
+      image: imagen2,
+      title: "Market Plates",
+      icon: "→",
     },
     {
       id: 3,
-      image: "/platos-principales.jpg",
-      alt: "Platos principales",
-      title: "PLATOS PRINCIPALES",
-      description: "Creaciones gourmet con proteínas premium"
+      image: imagen3,
+      title: "Garden Bowls",
+      icon: "→",
+    },
+    {
+      id: 4,
+      image: imagen4,
+      title: "Salsas",
+      icon: "→",
+    },
+    {
+      id: 5,
+      image: imagen5,
+      title: "Sweet Corner",
+      icon: "→",
+    },
+    {
+      id: 6,
+      image: imagen6,
+      title: "Bebidas",
+      icon: "→",
+    },
+  ]
+
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: -300, behavior: "smooth" })
     }
-  ];
+  }
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  useEffect(() => {
-    const autoSlide = setInterval(nextSlide, 5000);
-    return () => clearInterval(autoSlide);
-  }, [currentIndex]);
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: 300, behavior: "smooth" })
+    }
+  }
 
   return (
-    <div className={styles.sliderContainer}>
-      <div 
-        className={styles.sliderTrack}
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <div 
-            key={slide.id} 
-            className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
-          >
-            <img
-              src={slide.image}
-              alt={slide.alt}
-              className={styles.slideImage}
-            />
-            <div className={styles.slideContent}>
-              <h3 className={styles.slideTitle}>{slide.title}</h3>
-              <p className={styles.slideDescription}>{slide.description}</p>
+    <div className="menu-slider-section">
+      <div className="menu-header">
+        <h2 className="menu-title">
+        THE WHOLE 
+          <br />
+          FOOD WAY.
+        </h2>
+        <div className="menu-controls">
+          <button className="menu-control-button" onClick={scrollLeft}>
+            ←
+          </button>
+          <button className="menu-control-button" onClick={scrollRight}>
+            →
+          </button>
+        </div>
+      </div>
+
+      <div className="menu-items-container" ref={containerRef}>
+        {menuItems.map((item) => (
+          <div key={item.id} className="menu-item">
+            <div className="menu-item-image-container">
+              <img src={item.image || "/placeholder.svg"} alt={item.title} className="menu-item-image" />
+            </div>
+            <div className="menu-item-footer">
+              <h3 className="menu-item-title">{item.title}</h3>
+              <span className="menu-item-icon">{item.icon}</span>
             </div>
           </div>
         ))}
       </div>
-
-      <div className={styles.sliderControls}>
-        <button className={styles.controlButton} onClick={prevSlide}>&lt;</button>
-        <div className={styles.dotsContainer}>
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
-        <button className={styles.controlButton} onClick={nextSlide}>&gt;</button>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default MenuSlider;
+export default MenuSlider

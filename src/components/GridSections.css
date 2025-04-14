@@ -1,0 +1,45 @@
+/* Contenedor principal de la cuadrícula */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas */
+    width: 100%;
+    height: 120vh; /* Aumenta la altura total de la sección */
+    gap: 0; /* Sin separación entre cuadros */
+    padding: 0; /* Sin margen alrededor */
+    background-color: white; /* Fondo blanco */
+  }
+  
+  /* Cada cuadro dentro de la cuadrícula */
+  .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-height: 900px; /* Controla la altura mínima de cada cuadro */
+  }
+  
+  /* Estilo para los cuadros de texto */
+  .text-content {
+    text-align: left;
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Estilo para los cuadros de imagen */
+  .image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene la imagen completa dentro del cuadro sin cortarla */
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el cuadro */
+  }
+  

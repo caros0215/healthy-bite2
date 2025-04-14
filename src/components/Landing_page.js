@@ -1,76 +1,135 @@
-"use client";
+"use client"
 
-import { useEffect, useRef, useState } from "react";
-import "../styles/globals.css";
-import "../styles/home.css";
-import "./LandingPage.module.css";
-import CookieConsent from "./CookieConsent";
-import miVideo from "../assets/images/video_1.mp4"; // Ajusta la ruta según tu estructura
-import LogoColor from "../assets/images/logo_verde.png";
-import LogoWhite from "../assets/images/logo_blanco.png";
+import { useEffect, useRef, useState } from "react"
+import "../styles/globals.css"
+import "../styles/home.css"
+import "./LandingPage.module.css"
+import CookieConsent from "./CookieConsent"
+import miVideo from "../assets/images/video_1.mp4"
+import LogoColor from "../assets/images/logo_verde.png"
+import MenuSlider from "./MenuSlider"
+import TieredCollapsible from "./TieredCollapsible"
+import GridSections from "./GridSections"
+import "./MenuSlider.css"
+import LogoWhite from "../assets/images/logo_blanco.png"
+import imagen1 from "../assets/images/plato_2.jpeg"
+import imagen2 from "../assets/images/plato_3.jpeg"
 
 function App() {
-  const headerRef = useRef(null);
-  const heroContentRef = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef(null)
+  const heroContentRef = useRef(null)
+  const [scrolled, setScrolled] = useState(false)
+  const firstImageRef = useRef(null)
+  const secondImageRef = useRef(null)
+  const [pageLoaded, setPageLoaded] = useState(false)
+
+  // Force header to be transparent initially
+  useEffect(() => {
+    // Forzar posición 0 al inicio
+    window.scrollTo(0, 0);
+    
+    // Establecer el header como transparente inicialmente
+    setScrolled(false);
+    
+    // Marcar la página como cargada después de un breve retraso
+    const timer = setTimeout(() => {
+      setPageLoaded(true);
+    }, 200);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
+    // No activar eventos de scroll hasta que la página esté completamente cargada
+    if (!pageLoaded) return;
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY
+      const windowHeight = window.innerHeight
 
       // Fade out hero content on scroll
       if (heroContentRef.current) {
-        const opacity = 1 - Math.min(1, scrollY / (windowHeight * 0.5));
-        heroContentRef.current.style.opacity = opacity.toString();
+        const opacity = 1 - Math.min(1, scrollY / (windowHeight * 0.5))
+        heroContentRef.current.style.opacity = opacity.toString()
       }
 
-      // Header background change on scroll
+      // Header background change - ahora con umbral más alto
       if (headerRef.current) {
-        if (scrollY > 30) {
-          headerRef.current.classList.add("header-white");
-          setScrolled(true);
+        if (scrollY > 70) { // Aumentado a 70px para evitar cambios con pequeños desplazamientos
+          headerRef.current.classList.add("header-white")
+          setScrolled(true)
         } else {
-          headerRef.current.classList.remove("header-white");
-          setScrolled(false);
+          headerRef.current.classList.remove("header-white")
+          setScrolled(false)
         }
       }
-    };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      // Control de visibilidad de imágenes fijas
+      const sections = document.querySelectorAll(".transparent-section")
+      if (sections.length >= 2 && firstImageRef.current && secondImageRef.current) {
+        const firstSection = sections[0]
+        const secondSection = sections[1]
 
+        const firstRect = firstSection.getBoundingClientRect()
+        const secondRect = secondSection.getBoundingClientRect()
+
+        // Mostrar primera imagen cuando la primera sección transparente está visible
+        if (firstRect.top < windowHeight && firstRect.bottom > 0) {
+          firstImageRef.current.style.opacity = "1"
+          secondImageRef.current.style.opacity = "0"
+        }
+        // Mostrar segunda imagen cuando la segunda sección transparente está visible
+        else if (secondRect.top < windowHeight && secondRect.bottom > 0) {
+          firstImageRef.current.style.opacity = "0"
+          secondImageRef.current.style.opacity = "1"
+        }
+        // Ocultar ambas cuando ninguna sección transparente está visible
+        else {
+          firstImageRef.current.style.opacity = "0"
+          secondImageRef.current.style.opacity = "0"
+        }
+      }
+    }
+
+    // Evento de scroll solo se añade después de que la página está cargada
+    window.addEventListener("scroll", handleScroll)
+    
+    // Resetear scroll al iniciar
+    window.scrollTo(0, 0);
+    
+    // Ejecutar una vez para establecer estados iniciales
+    handleScroll()
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [pageLoaded])
+
+  // Agregar una clase CSS para asegurar que el scroll esté en 0
   return (
-    <main className="main-container">
+    <main className="main-container" style={{ overflowAnchor: 'none' }}>
       {/* CAPA 1 (INFERIOR): Imágenes fijas */}
       <div className="fixed-layer">
-        <div className="fixed-image-container first-fixed-image">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-GMxaZdetOuu4hXro7dSZ8Xw18tcha9.png"
-            alt="Comunidad"
-            className="fixed-image"
-          />
+        <div ref={firstImageRef} className="fixed-image-container first-fixed-image">
+          <img src={imagen1 || "/placeholder.svg"} alt="Comunidad" className="fixed-image" />
         </div>
-        <div className="fixed-image-container second-fixed-image">
-          <img
-            src="https://v0.blob.com/food-background.jpg"
-            alt="Comida"
-            className="fixed-image"
-          />
+        <div ref={secondImageRef} className="fixed-image-container second-fixed-image">
+          <img src={imagen2 || "/placeholder.svg"} alt="Comida" className="fixed-image" />
         </div>
       </div>
 
       {/* CAPA 2 (SUPERIOR): Secciones que se desplazan */}
       <div className="scroll-layer">
-        {/* Header fijo */}
-        <header ref={headerRef} className="header">
+        {/* Header fijo - forzado a ser transparente inicialmente */}
+        <header 
+          ref={headerRef} 
+          className={`header ${scrolled ? "header-white" : ""}`}
+          style={{ transition: "background-color 0.3s ease" }}
+        >
           <div className="logo-nav-container">
             <a href="/" className="logo">
               {scrolled ? (
-                <img src={LogoColor} alt="Honest Greens" width="150" />
+                <img src={LogoColor || "/placeholder.svg"} alt="Honest Greens" width="150" />
               ) : (
-                <img src={LogoWhite} alt="Honest Greens" width="150" />
+                <img src={LogoWhite || "/placeholder.svg"} alt="Honest Greens" width="150" />
               )}
             </a>
             <nav className="navigation">
@@ -120,43 +179,10 @@ function App() {
         {/* 2. Sección blanca con texto */}
         <section className="white-section">
           <div className="content-container">
-            <h2 className="section-title">EXPLORA NUESTRO MENÚ</h2>
-            <div className="menu-categories">
-              <div className="menu-category">
-                <img
-                  src="https://v0.blob.com/menu-placeholder.jpg"
-                  alt="Categoría de menú"
-                  className="menu-image"
-                />
-                <h3 className="category-title">BOWLS</h3>
-                <p className="category-description">
-                  Nuestros bowls están llenos de ingredientes frescos y
-                  nutritivos.
-                </p>
-              </div>
-              <div className="menu-category">
-                <img
-                  src="https://v0.blob.com/menu-placeholder.jpg"
-                  alt="Categoría de menú"
-                  className="menu-image"
-                />
-                <h3 className="category-title">ENSALADAS</h3>
-                <p className="category-description">
-                  Ensaladas frescas con ingredientes de temporada.
-                </p>
-              </div>
-              <div className="menu-category">
-                <img
-                  src="https://v0.blob.com/menu-placeholder.jpg"
-                  alt="Categoría de menú"
-                  className="menu-image"
-                />
-                <h3 className="category-title">PLATOS PRINCIPALES</h3>
-                <p className="category-description">
-                  Deliciosos platos principales con proteínas de calidad.
-                </p>
-              </div>
+            <div className="section-heading">
+              <p className="section-lead">EXPLORA NUESTRO MENÚ</p>
             </div>
+            <MenuSlider />
           </div>
         </section>
 
@@ -170,41 +196,47 @@ function App() {
                 COMMUNITY.
               </h1>
               <p className="transparent-text">
-                Únete a Honest People, obtén acceso privilegiado a eventos
-                exclusivos, merchandise & Real Food gratis.
+                Únete a Honest People, obtén acceso privilegiado a eventos exclusivos, merchandise & Real Food gratis.
               </p>
-              <p className="transparent-text">
-                Skip the line, pide comida saludable en la App.
-              </p>
+              <p className="transparent-text">Skip the line, pide comida saludable en la App.</p>
               <button className="download-button">Descarga la App</button>
             </div>
           </div>
         </section>
 
+        <section className="white-section2">
+          <div className="content-container2">
+          <TieredCollapsible />
+          </div>
+        </section>
+
+        <section className="white-section3">
+          <div className="content-container3">
+          <GridSections />
+          </div>
+        </section>
+
         {/* 4. Primera sección blanca adicional */}
-        <section className="white-section">
-          <div className="content-container">
+        <section className="white-section4">
+          <div className="content-container4">
             <h2 className="section-title">NUESTROS VALORES</h2>
             <div className="values-grid">
               <div className="value-item">
                 <h3 className="value-title">SOSTENIBILIDAD</h3>
                 <p className="value-description">
-                  Comprometidos con prácticas sostenibles y respetuosas con el
-                  medio ambiente.
+                  Comprometidos con prácticas sostenibles y respetuosas con el medio ambiente.
                 </p>
               </div>
               <div className="value-item">
                 <h3 className="value-title">CALIDAD</h3>
                 <p className="value-description">
-                  Seleccionamos los mejores ingredientes para ofrecerte la
-                  máxima calidad.
+                  Seleccionamos los mejores ingredientes para ofrecerte la máxima calidad.
                 </p>
               </div>
               <div className="value-item">
                 <h3 className="value-title">TRANSPARENCIA</h3>
                 <p className="value-description">
-                  Creemos en la transparencia en todo lo que hacemos, desde la
-                  cocina hasta el servicio.
+                  Creemos en la transparencia en todo lo que hacemos, desde la cocina hasta el servicio.
                 </p>
               </div>
             </div>
@@ -221,9 +253,8 @@ function App() {
                 REAL.
               </h1>
               <p className="transparent-text">
-                Ingredientes frescos y de temporada seleccionados cuidadosamente
-                para ofrecerte lo mejor. Nuestro compromiso es con la calidad y
-                la sostenibilidad en cada plato que servimos.
+                Ingredientes frescos y de temporada seleccionados cuidadosamente para ofrecerte lo mejor. Nuestro
+                compromiso es con la calidad y la sostenibilidad en cada plato que servimos.
               </p>
               <button className="menu-button">Ver Menú</button>
             </div>
@@ -231,8 +262,8 @@ function App() {
         </section>
 
         {/* 6. Segunda sección blanca adicional */}
-        <section className="white-section">
-          <div className="content-container">
+        <section className="white-section5">
+          <div className="content-container5">
             <h2 className="section-title">NUESTROS RESTAURANTES</h2>
             <div className="restaurants-grid">
               <div className="restaurant-item">
@@ -251,21 +282,17 @@ function App() {
                   className="restaurant-image"
                 />
                 <h3 className="restaurant-title">BARCELONA</h3>
-                <p className="restaurant-address">
-                  Passeig de Gràcia, 120, Barcelona
-                </p>
+                <p className="restaurant-address">Passeig de Gràcia, 120, Barcelona</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Sección final (opcional) */}
-        <section className="white-section footer-section">
+        <section className="white-section6 footer-section">
           <div className="content-container">
             <h2 className="section-title">CONTACTO</h2>
-            <p className="contact-text">
-              ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
-            </p>
+            <p className="contact-text">¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
             <button className="contact-button">Contáctanos</button>
           </div>
         </section>
@@ -274,7 +301,7 @@ function App() {
       {/* Cookie Consent Banner */}
       <CookieConsent />
     </main>
-  );
+  )
 }
 
-export default App;
+export default App
