@@ -71,7 +71,7 @@ function SplashScreen({ onLoadingComplete }) {
           <div className="subtitle">
             Restaurante y mercado saludable
             <br />
-            Healthy restaurant and market. 2024
+            Healthy restaurant and market. 2021
           </div>
         </div>
         <div className="progress-number">{progress}</div>

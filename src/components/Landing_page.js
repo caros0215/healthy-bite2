@@ -15,7 +15,7 @@ import LogoWhite from "../assets/images/logo_blanco.png"
 import imagen1 from "../assets/images/plato_2.jpeg"
 import imagen2 from "../assets/images/plato_3.jpeg"
 
-function App() {
+function LandingPpage() {
   const headerRef = useRef(null)
   const heroContentRef = useRef(null)
   const [scrolled, setScrolled] = useState(false)
@@ -219,33 +219,16 @@ function App() {
         {/* 4. Primera sección blanca adicional */}
         <section className="white-section4">
           <div className="content-container4">
-            <h2 className="section-title">NUESTROS VALORES</h2>
-            <div className="values-grid">
-              <div className="value-item">
-                <h3 className="value-title">SOSTENIBILIDAD</h3>
-                <p className="value-description">
-                  Comprometidos con prácticas sostenibles y respetuosas con el medio ambiente.
-                </p>
-              </div>
-              <div className="value-item">
-                <h3 className="value-title">CALIDAD</h3>
-                <p className="value-description">
-                  Seleccionamos los mejores ingredientes para ofrecerte la máxima calidad.
-                </p>
-              </div>
-              <div className="value-item">
-                <h3 className="value-title">TRANSPARENCIA</h3>
-                <p className="value-description">
-                  Creemos en la transparencia en todo lo que hacemos, desde la cocina hasta el servicio.
-                </p>
-              </div>
+            <div className="section-heading">
+              <p className="section-lead">NUESTRAS PARTICIPACIONES</p>
             </div>
+            <MenuSlider />
           </div>
         </section>
 
         {/* 5. Segunda sección transparente (muestra la segunda imagen fija) */}
         <section className="transparent-section">
-          <div className="content-container">
+          <div className="content-container10">
             <div className="transparent-content">
               <h1 className="transparent-title">
                 COMIDA
@@ -304,4 +287,4 @@ function App() {
   )
 }
 
-export default App
+export default LandingPpage

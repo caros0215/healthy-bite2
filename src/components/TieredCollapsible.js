@@ -40,29 +40,28 @@ export default function TieredCollapsible() {
       }
     });
   };
-
   useEffect(() => {
     if (openSection !== null && headerRefs.current[openSection]) {
       const timer = setTimeout(() => {
         const header = headerRefs.current[openSection];
         const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        
+  
         if (header) {
-          const y = header.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: y,
-            behavior: 'smooth'
-          });
-
-          // Ajustar visibilidad de todas las secciones
-          sectionRefs.current.forEach((section, index) => {
-            section.style.maxHeight = index === openSection ? "1000px" : "0px";
-            section.style.opacity = index === openSection ? "1" : "0";
-          });
+          // Asegurar que la sección esté completamente expandida antes del scroll
+          sectionRefs.current[openSection].style.maxHeight = "1000px";
+          sectionRefs.current[openSection].style.opacity = "1";
+  
+          setTimeout(() => {
+            const y = header.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth'
+            });
+          }, 300); // Esperar antes de mover el scroll para garantizar la visibilidad
         }
-      }, 300);
-
+      }, 200);
+  
       return () => clearTimeout(timer);
     }
   }, [openSection]);

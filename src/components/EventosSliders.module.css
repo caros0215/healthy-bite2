@@ -1,0 +1,144 @@
+/* MenuSlider.css */
+
+.menuslidersection {
+    width: 100%;
+    padding: 2rem 0;
+  }
+  
+  .menuheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .menutitle {
+    margin-left: -17% !important;
+    color: #000000;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .menucontrols {
+    margin-top: 11%;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menucontrolbutton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 3.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menucontrolbutton:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .menuitemscontainer {
+    margin-left: -17%;
+    display: flex;
+    width: 136%;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  
+  .menuitemscontainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .menuitem {
+    min-width: 400px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  
+  .menuitemimagecontainer {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .menuitemimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .menuitem:hover .menuitemimage {
+    transform: scale(1.05);
+  }
+  
+  .menuitemfooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menuitemtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .menuitemicon {
+    font-size: 1.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .menutitle {
+      font-size: 2.5rem;
+    }
+  
+    .menuitem {
+      min-width: 280px;
+    }
+  
+    .menuitemimagecontainer {
+      height: 200px;
+    }
+  
+    .menuitemtitle {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Integration with white-section */
+  .whitesection .menuslidersection {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .whitesection .sectionlead {
+    margin-left: -16%;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  
+  .whitesection .sectionheading {
+    margin-bottom: 2rem;
+  }
+  
