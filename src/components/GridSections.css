@@ -13,10 +13,11 @@
   /* Cada cuadro dentro de la cuadrícula */
   .grid-item {
     background-color: #ffffff;
-    display: flex;
+    display: flex
+;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 101%;
     height: 100%;
     overflow: hidden;
     min-height: 900px;
@@ -39,26 +40,25 @@
   }
   
   .image-content img {
-    width: 100%;
+    width: 99.1%;
     height: 100%;
     object-fit: cover;
   }
   
   /* Cuadro de video centrado en la imagen inferior izquierda */
   .video-overlay {
+    height: 7%;
     position: absolute;
-    top: 50%;
+    top: 19%;
     left: 50%;
     width: 60%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    border-radius: 10px;
   }
   
   .video-player {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
+    height: 2500%;
+    border-radius: 10px;
   }
   

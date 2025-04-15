@@ -1,7 +1,7 @@
 import "./GridSections.css";
 import imagen1 from "../assets/images/plato_2.jpeg";
-import imagen2 from "../assets/images/plato_5.jpeg";
-import videoDemo from "../assets/images/video_1.mp4"; // Ruta del video
+import imagen2 from "../assets/images/plato_4.jpeg";
+import videoDemo from "../assets/images/video_23.mp4"; // Ruta del video
 
 const sections = [
   {

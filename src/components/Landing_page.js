@@ -8,9 +8,12 @@ import CookieConsent from "./CookieConsent"
 import miVideo from "../assets/images/video_1.mp4"
 import LogoColor from "../assets/images/logo_verde.png"
 import MenuSlider from "./MenuSlider"
+import EventosSlider from "./EventosSliders"
 import TieredCollapsible from "./TieredCollapsible"
+import Frases from "./Frases"
 import GridSections from "./GridSections"
 import "./MenuSlider.css"
+import "./EventosSliders.module.css"
 import LogoWhite from "../assets/images/logo_blanco.png"
 import imagen1 from "../assets/images/plato_2.jpeg"
 import imagen2 from "../assets/images/plato_3.jpeg"
@@ -219,10 +222,8 @@ function LandingPpage() {
         {/* 4. Primera sección blanca adicional */}
         <section className="white-section4">
           <div className="content-container4">
-            <div className="section-heading">
-              <p className="section-lead">NUESTRAS PARTICIPACIONES</p>
-            </div>
-            <MenuSlider />
+
+            <EventosSlider />
           </div>
         </section>
 
@@ -247,27 +248,7 @@ function LandingPpage() {
         {/* 6. Segunda sección blanca adicional */}
         <section className="white-section5">
           <div className="content-container5">
-            <h2 className="section-title">NUESTROS RESTAURANTES</h2>
-            <div className="restaurants-grid">
-              <div className="restaurant-item">
-                <img
-                  src="https://v0.blob.com/restaurant-placeholder.jpg"
-                  alt="Restaurante"
-                  className="restaurant-image"
-                />
-                <h3 className="restaurant-title">MADRID CENTRO</h3>
-                <p className="restaurant-address">Calle Gran Vía, 44, Madrid</p>
-              </div>
-              <div className="restaurant-item">
-                <img
-                  src="https://v0.blob.com/restaurant-placeholder.jpg"
-                  alt="Restaurante"
-                  className="restaurant-image"
-                />
-                <h3 className="restaurant-title">BARCELONA</h3>
-                <p className="restaurant-address">Passeig de Gràcia, 120, Barcelona</p>
-              </div>
-            </div>
+          <Frases />
           </div>
         </section>
 
