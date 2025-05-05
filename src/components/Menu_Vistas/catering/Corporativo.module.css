@@ -1,0 +1,102 @@
+/* HonestCatering.module.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    margin-top: -33%;
+    margin-left: -1.2%;
+    width: 2109px;
+    height: 758px;
+  }
+  
+  .banner {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .bannerImage {
+    flex: 1;
+    min-height: 1258px;
+    background-image: url('../../../assets/images/plato_4.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bannerContent {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .serviceLabel {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  
+  .title span {
+    display: block;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    background-color: #000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    max-width: fit-content;
+  }
+  
+  .ctaButton:hover {
+    background-color: #333;
+  }
+  
+  .arrow {
+    margin-left: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .banner {
+      flex-direction: column;
+    }
+    
+    .bannerImage {
+      min-height: 250px;
+    }
+    
+    .bannerContent {
+      padding: 30px;
+    }
+    
+    .title {
+      font-size: 42px;
+    }
+  }

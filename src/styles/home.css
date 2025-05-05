@@ -1,18 +1,19 @@
 /* ============================================== */
-/* ESTRUCTURA PRINCIPAL */
+/* ESTILOS BASE Y CONTENEDORES PRINCIPALES */
 /* ============================================== */
 
 .main-container {
   position: relative;
+  overflow-x: hidden;
 }
 
-/* Capa de imágenes fijas */
+/* Capa Fija */
 .fixed-layer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 200vh;
+  height: 100vh;
   z-index: 1;
 }
 
@@ -20,16 +21,8 @@
   position: absolute;
   width: 100%;
   height: 100vh;
-  opacity: 0; /* Inicialmente ocultas */
+  opacity: 0;
   transition: opacity 0.5s ease;
-}
-
-.first-fixed-image {
-  top: 0;
-}
-
-.second-fixed-image {
-  top: 0; /* Ambas en la misma posición */
 }
 
 .fixed-image {
@@ -38,10 +31,11 @@
   object-fit: cover;
 }
 
-/* Capa de scroll */
+/* Capa Scroll */
 .scroll-layer {
   position: relative;
   z-index: 2;
+  background: transparent;
 }
 
 /* ============================================== */
@@ -80,7 +74,6 @@
 .navigation {
   margin-top: -1.7%;
   display: none;
-
 }
 
 .nav-link {
@@ -95,7 +88,6 @@
 
 .order-button {
   margin-top: -1.7%;
-  margin-left: -6%;
   display: flex;
   align-items: center;
   color: white;
@@ -128,6 +120,25 @@
 .header-white .order-button {
   color: #2e7d32;
   border-color: #2e7d32;
+}
+
+/* Hover states */
+.nav-link:hover {
+  color: #adce26;
+}
+
+.order-button:hover {
+  background-color: white;
+  color: #2e7d32;
+}
+
+.header-white .nav-link:hover {
+  color: #2e7d32;
+}
+
+.header-white .order-button:hover {
+  background-color: #2e7d32;
+  color: white;
 }
 
 /* ============================================== */
@@ -186,98 +197,74 @@
   background-color: white;
   padding: 6rem 1.5rem;
   min-height: 100vh;
-  display: flex
-;
+  display: flex;
   align-items: center;
 }
-.white-section2 {
-  position: relative;
-  background-color: white;
 
-  display: flex
-;
-  align-items: center;
-}
-.white-section3 {
-  position: relative;
-  background-color: white;
-  display: flex
-;
-  align-items: center;
-}
-.white-section4 {
-  margin-top: 34%;
+.white-section2,
+.white-section3,
+.white-section5 {
   position: relative;
   background-color: white;
   display: flex;
   align-items: center;
 }
-.white-section5 {
+
+.white-section4 {
   position: relative;
-  background-color: white;
-  padding: 6rem 1.5rem;
-  min-height: 100vh;
-  display: flex
 }
+
 .white-section6 {
-  margin-top: 53%;
+  margin-top: 0%;
   position: relative;
   background-color: white;
-  padding: 6rem 1.5rem;
-  min-height: 100vh;
-  display: flex
-;
+  display: flex;
   align-items: center;
 }
+
 .content-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1576px;
   margin: 0 auto;
 }
-.content-container2 {
-  width: 100%;
-  max-width: 1900px;
-  margin: 0 auto;
-}
+
+.content-container2,
 .content-container3 {
   width: 100%;
   max-width: 1900px;
   margin: 0 auto;
 }
-.content-container4 {
-  width: 100%;
-  max-width: 1905px;
-  margin: 0 auto;
-}
-.content-container5 {
-  width: 100%;
-  max-width: 1900px;
-  margin: 0 auto;
-}
+
+.content-container4,
+.content-container5,
 .content-container6 {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.content-container6 {
+  padding: 0 1.5rem;
+}
+
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 3rem;
-  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e7d32;
 }
 
 .section-lead {
   font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: #666;
-  text-align: center;
   margin-bottom: 1rem;
 }
 
 .section-heading {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 /* Secciones transparentes */
@@ -286,54 +273,45 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  color: white;
   z-index: 2;
 }
 
 .transparent-content {
   max-width: 600px;
-  padding: 0 3rem;
-  color: white;
-  margin-left: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
 }
 
 .transparent-title {
-  font-size: 5rem;
-  font-weight: 800;
-  line-height: 0.9;
-  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.5rem;
 }
 
 .transparent-text {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
   max-width: 500px;
 }
 
-/* ============================================== */
-/* COMPONENTES COMUNES */
-/* ============================================== */
-
-/* Menú */
+/* Menú Slider */
 .menu-slider-section {
-  width: 100%;
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 .menu-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .menu-title {
   font-size: 3.5rem;
-  font-weight: 900;
-  line-height: 0.9;
-  text-transform: uppercase;
-  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+  color: #2e7d32;
 }
 
 .menu-controls {
@@ -342,49 +320,48 @@
 }
 
 .menu-control-button {
+  background: none;
+  border: 2px solid #2e7d32;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background-color: #f5f5f5;
-  border: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  color: #2e7d32;
 }
 
 .menu-control-button:hover {
-  background-color: #e0e0e0;
+  background-color: #2e7d32;
+  color: white;
 }
 
 .menu-items-container {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   overflow-x: auto;
   padding: 1rem 0;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  -webkit-overflow-scrolling: touch;
 }
 
 .menu-items-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .menu-item {
+  flex: 0 0 auto;
   min-width: 250px;
-  flex-shrink: 0;
-  cursor: pointer;
 }
 
 .menu-item-image-container {
-  width: 100%;
-  height: 180px;
+  position: relative;
+  height: 200px;
   overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .menu-item-image {
@@ -405,75 +382,78 @@
 }
 
 .menu-item-title {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  margin: 0;
+  color: #2e7d32;
 }
 
 .menu-item-icon {
-  font-size: 1.2rem;
+  color: #2e7d32;
 }
 
-/* Valores */
+/* Grid de valores */
 .values-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  grid-template-columns: repeat(1, 1fr);
+  padding: 2rem 0;
 }
 
 .value-item {
   text-align: center;
   padding: 2rem;
+  border-radius: 10px;
   background-color: #f5f5f5;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .value-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .value-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  color: #2e7d32;
+  margin: 1rem 0;
 }
 
 .value-description {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* Restaurantes */
+/* Grid de restaurantes */
 .restaurants-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  grid-template-columns: repeat(1, 1fr);
+  padding: 2rem 0;
 }
 
 .restaurant-item {
-  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.restaurant-item:hover {
-  transform: translateY(-5px);
+.restaurant-item:hover .restaurant-image {
+  transform: scale(1.05);
 }
 
 .restaurant-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 200px;
   object-fit: cover;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
 .restaurant-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: #2e7d32;
+  margin: 1rem 0;
 }
 
 .restaurant-address {
@@ -481,78 +461,532 @@
   color: #666;
 }
 
-/* ============================================== */
-/* ELEMENTOS INTERACTIVOS */
-/* ============================================== */
-
-.nav-link:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.order-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.header-white .nav-link:hover {
-  color: #2e7d32;
-}
-
-.header-white .order-button:hover {
-  background-color: rgba(46, 125, 50, 0.1);
-}
-
+/* Botones */
 .download-button,
 .menu-button {
+  background: none;
+  border: 2px solid white;
+  color: white;
   padding: 0.75rem 2rem;
-  background-color: white;
-  color: black;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menu-button {
+  margin-top: 1.5rem;
+  display: inline-block;
 }
 
 .download-button:hover,
 .menu-button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #000;
 }
 
 .contact-button {
+  background: none;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
   padding: 0.75rem 2rem;
-  background-color: black;
-  color: white;
-  border-radius: 9999px;
-  transition: background-color 0.2s ease;
-  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .contact-button:hover {
-  background-color: #333;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #2e7d32;
+  color: white;
 }
 
-/* Contacto */
 .contact-text {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 
-.footer-section {
-  padding-bottom: 8rem;
+/* ============================================== */
+/* ESTILOS PARA EL IPHONE CON PDF */
+/* ============================================== */
+
+/* Estilos para el layout dividido en la sección transparente */
+.split-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Estilos para el contenedor del iPhone */
+.phones-container {
+  flex: 1;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Estilos base compartidos para ambos contenedores de iPhone */
+.phone-container,
+.static-phone-container {
+  flex: 0 0 auto;
+  position: relative;
+  width: fit-content;
+}
+
+/* Estilos compartidos para los wrappers de ambos iPhones */
+.phone-frame-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+/* Estilos compartidos para los frames de ambos iPhones */
+.phone-frame {
+  width: 652px;
+  height: auto;
+  position: relative;
+  display: block;
+}
+
+.static-phone-container .phone-frame {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================== */
+/* SLIDER DEL MENÚ */
+/* ============================================== */
+
+/* Contenedor del slider del menú - CONFIGURACIÓN PRINCIPAL */
+.menu-slider-container {
+  position: absolute;
+  top: 1.5%;
+  left: 11.5%;
+  width: 77%;
+  height: 86%;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 35px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Contenedor estático */
+.static-content {
+  position: absolute;
+  top: 1.5%;
+  left: 11.5%;
+  width: 77%;
+  height: 86%;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 35px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.static-phone-container .static-content {
+  z-index: 10;
+}
+
+.static-phone-container .phone-logo {
+  z-index: 11;
+}
+
+/* Ajustes para las slides del menú */
+.menu-slides {
+  height: 100%;
+  width: 1000%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-slide-wrapper {
+  flex: 0 0 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-slide {
+  margin-left: 32.6% !important;
+  margin-top: -6.5% !important;
+  height: 70%;
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 10px;
+}
+
+/* Estilos para los controles del slider */
+.slider-controls {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 4;
+  width: 60%;
+  justify-content: center;
+}
+
+.slider-button {
+  background: none;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.slider-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider-button:hover:not(:disabled) {
+  background-color: #000;
+  color: #fff;
+}
+
+.slide-info {
+  font-size: 1rem;
+  color: #000;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Ajustes para el logo en el iPhone estático */
+.phone-logo {
+  margin-left: -1%;
+  margin-top: -9%;
+  max-width: 112%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================== */
+/* MENÚ PREVIEW Y LAYOUT HORIZONTAL */
+/* ============================================== */
+
+/* Estilos para la vista previa del menú */
+.menu-slides-preview {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.menu-preview-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+
+.menu-preview-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.menu-preview-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layout horizontal */
+.horizontal-layout {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Ajustar el contenedor del texto */
+.transparent-content2 {
+  flex: 0 0 45%;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+/* ============================================== */
+/* ESTILOS PARA EL SEGUNDO IPHONE */
+/* ============================================== */
+
+/* Estilos para la segunda imagen */
+.second-phone-container {
+  flex: 0 0 auto;
+  position: relative;
+  width: fit-content;
+}
+
+.second-phone-frame {
+  margin-top: 12%;
+  max-width: 804px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+/* Estilos para el segundo iPhone estático */
+.static-phone-container {
+  margin-top: -6%;
+  flex: 0 0 auto;
+  position: relative;
+  width: fit-content;
+}
+
+/* Contenedor principal que mantiene los iPhones juntos visualmente */
+.phones-section {
+  position: relative;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor independiente para el primer iPhone (menú) */
+.menu-phone-container {
+  position: relative;
+  width: fit-content;
+  flex: 0 0 auto;
+}
+
+/* Contenedor independiente para el segundo iPhone (logo) */
+.logo-phone-container {
+  position: relative;
+  width: fit-content;
+  flex: 0 0 auto;
+}
+
+/* Estilos para el segundo iPhone (phone-frame1) */
+.phone-frame1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 375px;
+  border-radius: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  transform: rotate(0deg);
 }
 
 /* ============================================== */
 /* MEDIA QUERIES */
 /* ============================================== */
 
+/* Media Queries para pantallas grandes */
+@media (min-width: 2000px) {
+  .content-container {
+    max-width: 1843px;
+  }
+
+  .content-container2,
+  .content-container3,
+  .content-container4 {
+    max-width: 2538px;
+  }
+
+  .white-section3 {
+    padding-bottom: 8%;
+  }
+
+  .static-phone-container .phone-frame1 {
+    margin-top: 16%;
+    min-width: 149%;
+  }
+
+  .phone-frame {
+    max-width: 92%;
+  }
+
+  .menu-slide {
+    margin-left: 28%;
+    width: 40% !important;
+  }
+
+  .phone-logo {
+    margin-left: -1%;
+    max-width: 84%;
+  }
+
+  .slider-controls {
+    margin-left: -5%;
+    top: 91% !important;
+  }
+
+  .phones-container {
+    gap: 4rem;
+  }
+
+  .phone-container .phone-frame,
+  .static-phone-container .phone-frame {
+    width: 500px;
+  }
+
+  .menu-slider-container,
+  .static-content {
+    border-radius: 45px;
+  }
+
+  .slider-controls {
+    margin-top: 2rem;
+  }
+
+  .slider-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .slide-info {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .slider-controls {
+    top: 92% !important;
+  }
+
+  .menu-slider-container,
+  .static-content {
+    margin-top: -14%;
+    width: 201%;
+    margin-left: -59%;
+    height: 132%;
+  }
+
+  .content-container4 {
+    margin-top: 55%;
+    background-color: #ffffff;
+    min-width: 1585px;
+  }
+
+  .phones-container {
+    gap: 3rem;
+    margin-left: 12%;
+  }
+
+  .split-layout {
+    max-width: 1600px;
+  }
+
+  .transparent-content2 {
+    margin-left: 2%;
+    min-width: 49%;
+  }
+
+  .static-phone-container .static-content {
+    margin-top: 13%;
+    margin-left: -6%;
+    width: 151%;
+  }
+
+  .menu-items-container {
+    margin-left: 0%;
+    width: 108%;
+  }
+
+  .section-lead {
+    margin-left: 1% !important;
+  }
+
+  .content-container5 {
+    max-width: 1579px !important;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+  .menu-items-container {
+    width: 130% !important;
+  }
+}
+
+/* Pantallas medianas-grandes */
+@media (max-width: 1399px) {
+  .split-layout {
+    max-width: 1200px;
+  }
+
+  .phone-frame {
+    max-width: 700px;
+  }
+
+  .transparent-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Pantallas medianas */
+@media (max-width: 1199px) {
+  .split-layout {
+    padding: 0 1.5rem;
+  }
+
+  .phone-frame {
+    max-width: 600px;
+  }
+
+  .phones-container {
+    gap: 2rem;
+  }
+
+  .transparent-title {
+    font-size: 3rem;
+  }
+}
+
+/* Media Queries para tablets */
 @media (min-width: 768px) {
   .header {
     padding: 1rem 3rem;
@@ -588,21 +1022,142 @@
   }
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 1rem 1.5rem;
+/* Tablets */
+@media (max-width: 991px) {
+  .split-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .transparent-content {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .phones-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .phone-frame {
+    max-width: 500px;
+  }
+
+  .menu-slider-container {
+    top: 14.5%;
+    width: 90%;
+    left: 5%;
+  }
+
+  .menu-slide {
+    width: 96%;
+  }
+
+  /* Ajustes de navegación */
+  .navigation {
+    display: none;
+  }
+
+  .order-button {
+    margin-left: 0;
+  }
+
+  .phone-container .phone-frame,
+  .static-phone-container .phone-frame {
+    width: 300px;
+  }
+
+  .white-section,
+  .white-section2,
+  .white-section3,
+  .white-section4 {
+    padding: 3rem 1rem;
+  }
+
+  .content-container,
+  .content-container2,
+  .content-container3,
+  .content-container4 {
+    padding: 0 1rem;
+  }
+
+  .values-grid,
+  .restaurants-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Ajustes para el layout horizontal */
+  .horizontal-layout {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .transparent-content2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .phone-container {
+    flex: 0 0 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes */
+@media (max-width: 767px) {
+  .split-layout {
+    padding: 0 1rem;
+  }
+
+  .phone-frame {
+    max-width: 400px;
   }
 
   .transparent-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .transparent-text {
     font-size: 1rem;
   }
 
-  .menu-title {
+  .slider-controls {
+    margin-top: 0.5rem;
+  }
+
+  .slider-button {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Ajustes del header */
+  .header {
+    padding: 1rem;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .video-section {
+    height: 80vh;
+  }
+
+  .hero-title {
     font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .menu-items-container {
+    gap: 1rem;
   }
 
   .menu-item {
@@ -614,20 +1169,394 @@
   }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 3rem;
+/* Móviles */
+@media (max-width: 575px) {
+  .phone-frame {
+    max-width: 320px;
   }
 
   .transparent-title {
+    font-size: 2rem;
+  }
+
+  .transparent-text {
+    font-size: 0.9rem;
+  }
+
+  .slider-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slide-info {
+    font-size: 0.875rem;
+  }
+
+  /* Ajustes de botones */
+  .menu-button,
+  .download-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .values-grid,
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-preview-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-preview-item {
+    width: 130px;
+    height: 180px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 360px) {
+  .phone-frame {
+    max-width: 280px;
+  }
+
+  .transparent-title {
+    font-size: 1.8rem;
+  }
+
+  .slider-controls {
+    gap: 0.5rem;
+  }
+}
+
+/* Ajustes específicos para el contenido del slider */
+@media (max-width: 991px) {
+  .menu-slider-container {
+    width: 90%;
+    left: 5%;
+  }
+
+  .menu-slide {
+    width: 96%;
+  }
+}
+
+/* Ajustes para la sección de video */
+@media (max-width: 767px) {
+  .video-section {
+    height: 80vh;
+  }
+
+  .hero-title {
     font-size: 2.5rem;
   }
 
-  .section-title {
-    font-size: 1.5rem;
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Ajustes para las secciones blancas */
+@media (max-width: 991px) {
+  .white-section,
+  .white-section2,
+  .white-section3,
+  .white-section4 {
+    padding: 3rem 1rem;
   }
 
-  .menu-title {
-    font-size: 2rem;
+  .content-container,
+  .content-container2,
+  .content-container3,
+  .content-container4 {
+    padding: 0 1rem;
+  }
+}
+
+/* Ajustes para el menú slider */
+@media (max-width: 767px) {
+  .menu-items-container {
+    gap: 1rem;
+  }
+
+  .menu-item {
+    min-width: 200px;
+  }
+
+  .menu-item-image-container {
+    height: 150px;
+  }
+}
+
+/* Ajustes para el grid de valores y restaurantes */
+@media (max-width: 991px) {
+  .values-grid,
+  .restaurants-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .values-grid,
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contenedor principal que mantiene los iPhones juntos visualmente */
+.phones-section {
+  position: relative;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor independiente para el primer iPhone (menú) */
+.menu-phone-container {
+  position: relative;
+  width: fit-content;
+  flex: 0 0 auto;
+}
+
+/* Contenedor independiente para el segundo iPhone (logo) */
+.logo-phone-container {
+  position: relative;
+  width: fit-content;
+  flex: 0 0 auto;
+}
+
+/* Estilos para el segundo iPhone (phone-frame1) */
+.phone-frame1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 375px;
+  border-radius: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  transform: rotate(0deg);
+}
+
+.static-phone-container .phone-frame1 {
+  margin-left: 0;
+}
+
+/* Media queries para phone-frame1 */
+@media (max-width: 2000px) {
+  .phone-container .phone-frame1,
+  .static-phone-container .phone-frame1 {
+    width: 375px;
+    height: auto;
+  }
+}
+
+@media (max-width: 1800px) {
+  .phone-frame1 {
+    width: 350px;
+  }
+}
+
+/* Ajustes para el posicionamiento en pantallas grandes */
+@media (min-width: 1600px) {
+  .split-layout {
+    max-width: 1600px;
+  }
+
+  .menu-slides-preview {
+    max-width: 1200px;
+  }
+}
+
+/* Mantener compatibilidad con estilos existentes */
+.content-container10 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 1440px) {
+  .phone-frame1 {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .phone-container .phone-frame1,
+  .static-phone-container .phone-frame1 {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .phone-frame1 {
+    width: 260px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .phone-container .phone-frame1,
+  .static-phone-container .phone-frame1 {
+    width: 240px;
+  }
+}
+
+@media (max-width: 960px) {
+  .phone-frame1 {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .phone-container .phone-frame1,
+  .static-phone-container .phone-frame1 {
+    width: 200px;
+  }
+}
+
+.static-phone-container .static-content {
+  background-color: transparent;
+}
+
+.static-phone-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-content {
+  position: absolute;
+  top: 1.5%;
+  left: 11.5%;
+  width: 77%;
+  height: 86%;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 35px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-logo {
+  max-width: 65%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Media query para pantallas grandes de 2000px y superiores */
+@media (min-width: 2000px) {
+  .content-container {
+    max-width: 1843px;
+  }
+
+  .content-container2 {
+    max-width: 2538px;
+  }
+
+  .content-container3 {
+    max-width: 2538px;
+  }
+
+  .white-section3 {
+    padding-bottom: 8%;
+  }
+
+  .content-container4 {
+    max-width: 2538px;
+  }
+
+  .white-section6 {
+  }
+
+  .static-phone-container .phone-frame1 {
+    margin-top: 16%;
+    min-width: 149%;
+  }
+
+  .phone-frame {
+    max-width: 92%;
+  }
+
+  .menu-slide {
+    margin-left: 28%;
+    width: 40% !important;
+  }
+
+  .phone-logo {
+    margin-left: -1%;
+    max-width: 84%;
+  }
+
+  .slider-controls {
+    margin-left: -5%;
+    top: 91% !important;
+  }
+}
+
+.white-section5 {
+  margin-bottom: 0%;
+}
+
+.horizontal-layout {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Ajustar el contenedor del texto */
+.transparent-content2 {
+  flex: 0 0 45%;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+/* Ajustar el contenedor del iPad */
+.phone-container {
+  flex: 0 0 50%;
+  position: relative;
+  max-width: 760px;
+}
+
+/* Media queries para asegurar responsividad */
+@media (max-width: 1024px) {
+  .horizontal-layout {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .transparent-content2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .phone-container {
+    flex: 0 0 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Media queries adicionales para ajustar tamaños en pantallas grandes */
+@media (min-width: 1400px) {
+  .horizontal-layout {
+    max-width: 1600px;
+  }
+
+  .transparent-content2 {
+    padding-right: 4rem;
   }
 }
