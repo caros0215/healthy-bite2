@@ -224,11 +224,10 @@
 }
 
 .whiteSection {
-  margin-top: 0%;
+  margin-top: -4%;
   position: relative;
   background-color: white;
-  padding: 6rem 1.5rem;
-  min-height: 100vh;
+  min-height: 148vh;
   display: flex
 ;
   align-items: center;

@@ -8,6 +8,7 @@ import styles from "./catering.module.css"
 import imagen_1 from "../../../assets/images/portada_2.jpg"
 import Frases2 from "../Real_food/Frases2"
 import Corporativo from "../catering/Corporativo"
+import MenuSlider3 from "../catering/Menuslider_3"
 
 export default function CantinaPage() {
   const heroContentRef = useRef(null)
@@ -131,16 +132,9 @@ export default function CantinaPage() {
 
         <section className={styles.whiteSection}>
           <div className={styles.contentContainer}>
-            {/* <MenuSlider2/>  */}
+            <MenuSlider3/>  
           </div>
         </section>
-
-        <section className={styles.whiteSection6}>
-          <div className={styles.contentContainer6}>
-            <Frases2/> 
-          </div>
-        </section>
-
 
       </div>
 
